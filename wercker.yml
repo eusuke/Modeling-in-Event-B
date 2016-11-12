@@ -17,6 +17,8 @@ deploy:
       code: |
         git config user.email "pleasemailus@werker.com"
         git config user.name "werckerbot"
+        git remote rm origin "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git"
+        git remote add origin
         git add -- doc/ModelingInEventB.html
         git commit -m "deploy from wercker"
-        git push -f "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git" master:master
+        git push -f origin master
