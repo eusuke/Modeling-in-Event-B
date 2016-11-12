@@ -7,6 +7,8 @@ build:
         asciidoctor -D doc/ -o ModelingInEventB.html toctree.adoc
 deploy:
   steps:
+    - install-packages:
+      packages: git ssh-client
     - script:
       name: Commit to the repo
       code: |
