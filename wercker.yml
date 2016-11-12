@@ -4,4 +4,14 @@ build:
     - script:
       name: Generate html
       code: |
-        asciidoctor toctree.adoc
+        asciidoctor -D doc/ -o ModelingInEventB.html toctree.adoc
+deploy:
+  steps:
+    - script:
+      name: Commit to the repo
+      code: |
+        git config user.email "pleasemailus@werker.com"
+        git config user.name "werckerbot"
+        git add -- doc/ModelingInEventB.html
+        git commit -m "deploy from wercker"
+        git push https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B origin master
