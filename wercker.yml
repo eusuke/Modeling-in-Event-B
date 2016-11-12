@@ -19,6 +19,7 @@ deploy:
         git config user.name "werckerbot"
         git remote rm origin
         git remote add origin  "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git"
+        git checkout master
         git add -- doc/ModelingInEventB.html
         git commit -m "deploy from wercker"
         git push -f origin master
