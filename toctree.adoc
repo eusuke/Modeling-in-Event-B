@@ -1,0 +1,5 @@
+= Modeling in Event-B
+:toc: left
+:stem: latexmath
+
+include::RulesOfInference.adoc[]
