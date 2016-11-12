@@ -10,8 +10,8 @@ deploy:
     - script:
       name: Install git
       code: |
-        apt-get update
-        apt-get install git -y
+        yum update
+        yum install git -y
     - script:
       name: Commit to the repo
       code: |
