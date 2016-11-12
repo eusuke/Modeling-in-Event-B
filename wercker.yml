@@ -1,0 +1,7 @@
+box: asciidoctor/docker-asciidoctor
+build:
+  steps:
+    - script:
+      name: Generate html
+      code: |
+        asciidoctor toctree.adoc
