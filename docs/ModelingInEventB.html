@@ -424,21 +424,105 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_推論規則">推論規則</a></li>
+<li><a href="#_シークエント_推件式">シークエント (推件式)</a></li>
+<li><a href="#_推論規則">推論規則</a>
+<ul class="sectlevel2">
+<li><a href="#_mon">MON</a></li>
+<li><a href="#_p2">P2</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="stemblock">
+<div class="content">
+\[\def\NAT{\mathbb{N}}
+\def\meta#1{\textbf{#1}}
+\def\name#1{\textsf{#1}}
+\def\sequent#1#2{\bbox[15px,border:1px solid black]{#1 \vdash #2}}
+\def\rule#1#2#3{\bbox[15px,border:1px solid black]{\frac{#1}{#2}\quad\name{#3}}}\]
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_シークエント_推件式">シークエント (推件式)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>次のような形式のものをシークエントと呼ぶ．</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\sequent{\meta{H}}{\meta{G}}\]
+</div>
+</div>
+<div class="paragraph">
+<p>ここに \(\meta{H}\) は述語の有限集合で，仮説と呼ばれる．
+仮説は空になりうる．
+\(\meta{G}\) はゴールと呼ばれる．</p>
+</div>
+<div class="paragraph">
+<p>シークエントは直感的には \(\meta{G}\) は \(\meta{H}\)
+のもとで証明できる，ということを意味する．</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_推論規則">推論規則</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>本文中で言及される推論規則について．</p>
+</div>
+<div class="sect2">
+<h3 id="_mon">MON</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H1} \vdash \meta{G}}
+  {\meta{H1}, \meta{H2} \vdash \meta{G}}
+  {MON}\]
+</div>
+</div>
+<div class="paragraph">
+<p>２つの仮説 \(\meta{H1}，\meta{H2}\) のもとで
+\(\meta{G}\) が成り立つことを証明するためには，
+\(\meta{H1}\) のみのもとで \(\meta{G}\) が成り立つことを証明すれば十分である．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_p2">P2</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{H}, \meta{n} \in \NAT \vdash \meta{n}+1 \in \NAT}
+  {P2}\]
+</div>
+</div>
+<div class="paragraph">
+<p>ペアノの第二公理．公理であるため前件は存在しない．
+MONを適用して次のようにも表現できる (というかこちらが一般的?)</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{n} \in \NAT \vdash \meta{n}+1 \in \NAT}
+  {P2}\]
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-12 12:44:22 UTC
+Last updated 2016-11-12 14:48:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
