@@ -2,4 +2,14 @@
 :toc: left
 :stem: latexmath
 
+[stem]
+++++
+\def\NAT{\mathbb{N}}
+\def\meta#1{\textbf{#1}}
+\def\name#1{\textsf{#1}}
+\def\sequent#1#2{\bbox[15px,border:1px solid black]{#1 \vdash #2}}
+\def\rule#1#2#3{\bbox[15px,border:1px solid black]{\frac{#1}{#2}\quad\name{#3}}}
+++++
+
+include::Sequent.adoc[]
 include::RulesOfInference.adoc[]

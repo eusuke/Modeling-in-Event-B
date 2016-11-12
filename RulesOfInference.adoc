@@ -1,3 +1,37 @@
 == 推論規則
+本文中で言及される推論規則について．
 
-.MON
+=== MON
+[stem]
+++++
+\rule
+  {\meta{H1} \vdash \meta{G}}
+  {\meta{H1}, \meta{H2} \vdash \meta{G}}
+  {MON}
+++++
+
+２つの仮説 latexmath:[\meta{H1}，\meta{H2}] のもとで
+latexmath:[\meta{G}] が成り立つことを証明するためには，
+latexmath:[\meta{H1}] のみのもとで latexmath:[\meta{G}] が成り立つことを証明すれば十分である．
+
+=== P2
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{H}, \meta{n} \in \NAT \vdash \meta{n}+1 \in \NAT}
+  {P2}
+++++
+
+ペアノの第二公理．公理であるため前件は存在しない．
+MONを適用して次のようにも表現できる (というかこちらが一般的?)
+
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{n} \in \NAT \vdash \meta{n}+1 \in \NAT}
+  {P2}
+++++
+
+<<<
