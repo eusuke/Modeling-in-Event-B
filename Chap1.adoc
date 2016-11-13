@@ -43,7 +43,7 @@
 
 システムは離散的にふるまうとみなすことができる．
 
-== Informal overview of discrete models
+=== Informal overview of discrete models
 
 ==== State and transitions
 
