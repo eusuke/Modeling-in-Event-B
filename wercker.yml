@@ -19,14 +19,13 @@ deploy:
         git remote rm origin
         git remote add origin  "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git"
         git checkout master
-        echo "Last author: $(git log -n 1 --pretty=format:"%an")"
     - script:
-      name: Commit to the repo
+      name: Push to the repo if necessary
       code: >
-        echo $WERCKER_STEP_ROOT;
-        cat $WERCKER_STEP_ROOT/run.sh;
         if [ "$(git log -n 1 --pretty=format:"%an")" != "werckerbot" ]; then
         git add -- docs/ModelingInEventB.html;
         git commit -m "deploy from wercker";
         git push -f origin master;
+        else
+        echo "No need to push to the repo";
         fi;
