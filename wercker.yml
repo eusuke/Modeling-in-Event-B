@@ -25,7 +25,7 @@ deploy:
       code: >
         echo $WERCKER_STEP_ROOT;
         cat $WERCKER_STEP_ROOT/run.sh;
-        if [ $(git log -n 1 --pretty=format:"%an") != "werckerbot" ]; then
+        if [ "$(git log -n 1 --pretty=format:"%an")" != "werckerbot" ]; then
         git add -- docs/ModelingInEventB.html;
         git commit -m "deploy from wercker";
         git push -f origin master;
