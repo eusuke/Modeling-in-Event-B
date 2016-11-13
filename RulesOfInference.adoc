@@ -34,4 +34,22 @@ MONを適用して次のようにも表現できる (というかこちらが一
   {P2}
 ++++
 
+=== INC
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{n} \lt \meta{m} \vdash \meta{n}+1 \leq \meta{m}}
+  {INC}
+++++
+
+=== DEC
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{n} \leq \meta{m} \vdash \meta{n}-1 \lt \meta{m}}
+  {DEC}
+++++
+
 <<<
