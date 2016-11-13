@@ -11,5 +11,6 @@
 \def\rule#1#2#3{\bbox[15px,border:1px solid black]{\frac{#1}{#2}\quad\name{#3}}}
 ++++
 
+include::Chap1.adoc[]
 include::Sequent.adoc[]
 include::RulesOfInference.adoc[]
