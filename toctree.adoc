@@ -12,5 +12,6 @@
 ++++
 
 include::Chap1.adoc[]
+include::Chap2.adoc[]
 include::Sequent.adoc[]
 include::RulesOfInference.adoc[]
