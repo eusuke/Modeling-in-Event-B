@@ -424,6 +424,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#_chapter_1_introduction">Chapter 1 Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_formal_methods">Formal methods</a></li>
+<li><a href="#_a_little_detour_blueprints">A little detour: blueprints</a></li>
+<li><a href="#_definition_of_the_term_formal_method_as_used_in_this_book">Definition of the term "formal method" as used in this book</a></li>
+</ul>
+</li>
+<li><a href="#_informal_overview_of_discrete_models">Informal overview of discrete models</a>
+<ul class="sectlevel3">
+<li><a href="#_state_and_transitions">State and transitions</a></li>
+<li><a href="#_operational_interpretation">Operational interpretation</a></li>
+</ul>
+</li>
 <li><a href="#_シークエント_推件式">シークエント (推件式)</a></li>
 <li><a href="#_推論規則">推論規則</a>
 <ul class="sectlevel2">
@@ -445,6 +458,144 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 \def\sequent#1#2{\bbox[15px,border:1px solid black]{#1 \vdash #2}}
 \def\rule#1#2#3{\bbox[15px,border:1px solid black]{\frac{#1}{#2}\quad\name{#3}}}\]
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chapter_1_introduction">Chapter 1 Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_formal_methods">Formal methods</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>形式手法を使うとコーディングの前に多くのことを考える必要がある．</p>
+</li>
+<li>
+<p>形式手法と開発プロセスを協調させることは簡単ではない．
+それは多大な時間が必要なのでマネージャは尻込みする類のものである．</p>
+</li>
+<li>
+<p>モデルの構築は簡単な作業ではない．
+ときどき疑似コードをモデルの構築の代わりにとしてしまうが，
+モデルの構築とプログラミングを混同してはいけない．
+初期のモデルはプログラムが果たすべき性質を記述する．</p>
+</li>
+<li>
+<p>モデルの構築は証明によって達成される．
+これはプログラムのモデルは文章の一片ではなく，証明などからなることを意味する．</p>
+</li>
+<li>
+<p>非形式的なドキュメントは全然だめ．</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_a_little_detour_blueprints">A little detour: blueprints</h3>
+<div class="paragraph">
+<p>成熟したエンジニアリングでは必ず青写真が使われるので，
+ソフトウェアの世界もそうなるべき，といったことが書かれている．</p>
+</div>
+<div class="paragraph">
+<p>青写真とは…</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>将来のシステムの信頼できる説明のこと．</p>
+</li>
+<li>
+<p>基盤が欠落しているためモックアップとは違うものである．
+自動車の青写真を動かすことはできない．</p>
+</li>
+<li>
+<p>青写真を使うことで開発中に開発しているものの証明ができる．
+テストは解発後にしかできない．</p>
+</li>
+<li>
+<p>システムを証明するというのは定義してそのふるまいと制約を計算することを意味する．</p>
+</li>
+<li>
+<p>青写真は徐々に詳細が加えられていく．</p>
+</li>
+<li>
+<p>青写真は可読性を上げるために分割される．</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definition_of_the_term_formal_method_as_used_in_this_book">Definition of the term "formal method" as used in this book</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>青写真＝形式手法です．</p>
+</li>
+<li>
+<p>論理学と集合論を使う．</p>
+</li>
+<li>
+<p>私たちが興味のあるシステムは複雑で離散的である．</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_complex_system">Complex system</h4>
+<div class="paragraph">
+<p>なんかいろいろ複雑でいろんな人が集まってつくります．</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_discrete_systems">Discrete systems</h4>
+<div class="paragraph">
+<p>システムは離散的にふるまうとみなすことができる．</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_informal_overview_of_discrete_models">Informal overview of discrete models</h2>
+<div class="sectionbody">
+<div class="sect3">
+<h4 id="_state_and_transitions">State and transitions</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>離散モデルは定数と変数で表現される状態から構成される．</p>
+</li>
+<li>
+<p>離散モデルは状態に加えて遷移も含んでいる．遷移はイベントと呼ばれる．</p>
+</li>
+<li>
+<p>イベントはガードとアクションからなる．</p>
+</li>
+<li>
+<p>ガードは定数と変数を使った述語で，イベントが発生するために必要な条件を表す．</p>
+</li>
+<li>
+<p>アクションはイベントが起きたときの状態の変更方法を記述する．</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operational_interpretation">Operational interpretation</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>真になるイベントのガードがないとき，モデルの実行は停止する．これはデッドロックと呼ばれる．</p>
+</li>
+<li>
+<p>真になるイベントのガードが複数あるとき，対応するイベントの中から一つが実行される．</p>
+</li>
+<li>
+<p>非決定的であることを意味する．</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -522,7 +673,7 @@ MONを適用して次のようにも表現できる (というかこちらが一
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-13 01:24:57 UTC
+Last updated 2016-11-13 08:19:43 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
