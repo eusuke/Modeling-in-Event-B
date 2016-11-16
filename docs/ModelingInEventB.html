@@ -429,19 +429,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_formal_methods">Formal methods</a></li>
 <li><a href="#_a_little_detour_blueprints">A little detour: blueprints</a></li>
 <li><a href="#_definition_of_the_term_formal_method_as_used_in_this_book">Definition of the term "formal method" as used in this book</a></li>
+<li><a href="#_informal_overview_of_discrete_models">Informal overview of discrete models</a></li>
 </ul>
 </li>
-<li><a href="#_informal_overview_of_discrete_models">Informal overview of discrete models</a>
-<ul class="sectlevel3">
-<li><a href="#_state_and_transitions">State and transitions</a></li>
-<li><a href="#_operational_interpretation">Operational interpretation</a></li>
-</ul>
-</li>
+<li><a href="#_chapter_2_controlling_cars_on_a_bridge">Chapter 2 Controlling cars on a bridge</a></li>
 <li><a href="#_シークエント_推件式">シークエント (推件式)</a></li>
 <li><a href="#_推論規則">推論規則</a>
 <ul class="sectlevel2">
 <li><a href="#_mon">MON</a></li>
 <li><a href="#_p2">P2</a></li>
+<li><a href="#_inc">INC</a></li>
+<li><a href="#_dec">DEC</a></li>
 </ul>
 </li>
 </ul>
@@ -553,11 +551,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_informal_overview_of_discrete_models">Informal overview of discrete models</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_informal_overview_of_discrete_models">Informal overview of discrete models</h3>
 <div class="sect3">
 <h4 id="_state_and_transitions">State and transitions</h4>
 <div class="ulist">
@@ -597,6 +592,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_chapter_2_controlling_cars_on_a_bridge">Chapter 2 Controlling cars on a bridge</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>話の流れで初期化しないで証明を始めているが，
+Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明も通らない．</p>
+</li>
+<li>
+<p>deadlock freedom ruleをRodinで証明するには??</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -666,6 +679,28 @@ MONを適用して次のようにも表現できる (というかこちらが一
   {P2}\]
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_inc">INC</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{n} \lt \meta{m} \vdash \meta{n}+1 \leq \meta{m}}
+  {INC}\]
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dec">DEC</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{n} \leq \meta{m} \vdash \meta{n}-1 \lt \meta{m}}
+  {DEC}\]
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -673,7 +708,7 @@ MONを適用して次のようにも表現できる (というかこちらが一
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-13 08:19:43 UTC
+Last updated 2016-11-16 09:10:49 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
