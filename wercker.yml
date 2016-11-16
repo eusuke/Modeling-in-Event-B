@@ -19,6 +19,7 @@ deploy:
         git remote rm origin
         git remote add origin  "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git"
         git checkout master
+        cat $WERCKER_STEP_ROOT/run.sh
     - script:
       name: Push to the repo if necessary
       code: >
