@@ -19,7 +19,6 @@ deploy:
         git remote rm origin
         git remote add origin  "https://$GIT_TOKEN@github.com/eusuke/Modeling-in-Event-B.git"
         git checkout master
-        cat $WERCKER_STEP_ROOT/run.sh
     - script:
       name: Push to the repo if necessary
       code: >
@@ -29,4 +28,4 @@ deploy:
         git push -f origin master;
         else
         echo "No need to push to the repo";
-        fi;
+        fi
