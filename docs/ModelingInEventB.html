@@ -432,11 +432,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_informal_overview_of_discrete_models">Informal overview of discrete models</a></li>
 </ul>
 </li>
-<li><a href="#_chapter_2_controlling_cars_on_a_bridge">Chapter 2 Controlling cars on a bridge</a></li>
+<li><a href="#_chapter_2_controlling_cars_on_a_bridge">Chapter 2 Controlling cars on a bridge</a>
+<ul class="sectlevel2">
+<li><a href="#_おおまかな流れ">おおまかな流れ</a></li>
+<li><a href="#_memo">memo</a></li>
+</ul>
+</li>
 <li><a href="#_証明責務">証明責務</a>
 <ul class="sectlevel2">
-<li><a href="#_inv">INV</a></li>
-<li><a href="#_dlf_deadlock_freedom">DLF (Deadlock freedom)</a></li>
+<li><a href="#_モデル単体の性質に関するもの">モデル単体の性質に関するもの</a></li>
+<li><a href="#_refinementに関するもの">Refinementに関するもの</a></li>
 </ul>
 </li>
 <li><a href="#_シークエント_推件式">シークエント (推件式)</a></li>
@@ -518,8 +523,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>将来のシステムの信頼できる説明のこと．</p>
 </li>
 <li>
-<p>基盤が欠落しているためモックアップとは違うものである．
-自動車の青写真を動かすことはできない．</p>
+<p>基盤が欠落しているためモックアップとは違うものである．</p>
+</li>
+<li>
+<p>自動車の青写真を動かすことはできない．</p>
 </li>
 <li>
 <p>青写真を使うことで開発中に開発しているものの証明ができる．
@@ -576,7 +583,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>離散モデルは状態に加えて遷移も含んでいる．遷移はイベントと呼ばれる．</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>イベントはガードとアクションからなる．</p>
 </li>
@@ -585,6 +593,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>アクションはイベントが起きたときの状態の変更方法を記述する．</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -598,9 +609,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>真になるイベントのガードが複数あるとき，対応するイベントの中から一つが実行される．</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>非決定的であることを意味する．</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -612,6 +627,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_chapter_2_controlling_cars_on_a_bridge">Chapter 2 Controlling cars on a bridge</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_おおまかな流れ">おおまかな流れ</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>まずは島と橋が一体化したものが本土とくっついているモデルを構築する．</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>状態をモデル化する．</p>
+</li>
+<li>
+<p>イベントをモデル化する．</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>島と橋が一体化しているので「本土から出る」「本土へ入る」というイベントのみ．</p>
+</li>
+<li>
+<p>まだガードなし．</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>各イベントについてINVを証明する．</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>ここらでシークエントやら推論規則やらの導入．</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>イベントにガード導入</p>
+</li>
+<li>
+<p>初期化イベント導入</p>
+</li>
+<li>
+<p>DLF証明</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>最初のリファインメントとして，一体化させていた島と橋 (一方通行) に分離する．</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>分離することで「島から出る」「島へ入る」というイベントを導入する．</p>
+</li>
+<li>
+<p>GRDの証明</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_memo">memo</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -620,10 +699,12 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 </li>
 <li>
 <p>deadlock freedom ruleをRodinで証明するには??</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>DLFを自前で不変条件に定義する．Rodinで定義した後に "not theorem" のラベルをクリックして "theorem" に変更すること．</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>意味的には "theorem" にすることで，これが他の公理や不変条件から証明されるべき定理であることをRodinに指示することになる．</p>
 </li>
@@ -635,7 +716,14 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -648,11 +736,11 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <dl>
 <dt class="hdlist1">\(c\)</dt>
 <dd>
-<p>constants</p>
+<p>定数</p>
 </dd>
 <dt class="hdlist1">\(v\)</dt>
 <dd>
-<p>variables</p>
+<p>変数</p>
 </dd>
 <dt class="hdlist1">\(A(c)\)</dt>
 <dd>
@@ -671,10 +759,24 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <dd>
 <p>イベントのガード</p>
 </dd>
+<dt class="hdlist1">\(w\)</dt>
+<dd>
+<p>具象変数. vの次でw?</p>
+</dd>
+<dt class="hdlist1">\(J(c, v, w)\)</dt>
+<dd>
+<p>具象不変条件. Iの次でJ?</p>
+</dd>
+<dt class="hdlist1">\(H(c, w)\)</dt>
+<dd>
+<p>具象イベントのガード．Gの次でH?</p>
+</dd>
 </dl>
 </div>
 <div class="sect2">
-<h3 id="_inv">INV</h3>
+<h3 id="_モデル単体の性質に関するもの">モデル単体の性質に関するもの</h3>
+<div class="sect3">
+<h4 id="_inv">INV</h4>
 <div class="stemblock">
 <div class="content">
 \[\begin{array}{|l|c|}\hline
@@ -691,8 +793,8 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <p>イベントの前後で不変条件が保存されていることを証明するためのシークエント．</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_dlf_deadlock_freedom">DLF (Deadlock freedom)</h3>
+<div class="sect3">
+<h4 id="_dlf_deadlock_freedom">DLF (Deadlock freedom)</h4>
 <div class="stemblock">
 <div class="content">
 \[\begin{array}{|l|c|}\hline
@@ -708,7 +810,31 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <p>公理と不変条件が成立しているならばガードのうちの少なくとも一つが真である．
 つまり，いずれかのイベントは実行可能である．</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_refinementに関するもの">Refinementに関するもの</h3>
+<div class="sect3">
+<h4 id="_grd">GRD</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)       &amp; \\
+ I(c, v)    &amp; \\
+ J(c, v, w) &amp; \name{GRD} \\
+ H(c, w)    &amp; \\
+\vdash      &amp; \\
+ G_i(c, v)  &amp; \\
+\hline
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>具象ガードが抽象ガードより強いことを示すために証明しなければならないシークエント．
+抽象イベントが有効にならない場合には具象イベントも有効にならないことを意味する．</p>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
@@ -939,7 +1065,7 @@ MONを適用して次のようにも表現できる (というかこちらが一
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-19 08:07:07 UTC
+Last updated 2016-11-19 14:49:29 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
