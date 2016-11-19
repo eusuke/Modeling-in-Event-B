@@ -26,4 +26,20 @@ latexmath:[G(c, v)]:: イベントのガード
 
 イベントの前後で不変条件が保存されていることを証明するためのシークエント．
 
+=== DLF (Deadlock freedom)
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)                           & \\
+ I(c, v)                        & \\
+\vdash                          & \name{DLF} \\
+ G_1(c, v) \vee \dots G_m(c, v) & \\
+\hline
+\end{array}
+++++
+
+公理と不変条件が成立しているならばガードのうちの少なくとも一つが真である．
+つまり，いずれかのイベントは実行可能である．
+
 <<<
