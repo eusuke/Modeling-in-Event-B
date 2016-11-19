@@ -1,0 +1,27 @@
+== 証明責務
+
+構築したモデルに対して証明しなければならないシークエント．
+
+latexmath:[c]:: constants
+latexmath:[v]:: variables
+latexmath:[A(c)]:: latexmath:[c] に関連する公理の集合．
+latexmath:[I(c, v)]:: latexmath:[c, v] に関連する不変条件の集合．
+latexmath:[v' = E(c, v)]:: before-after predicateで表したイベント．
+latexmath:[v] がイベントのアクションの結果 latexmath:[v'] に遷移した，という意味．
+
+=== INV
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)            & \\
+ I(c, v)         & \\
+\vdash           & \name{INV} \\
+ I_i(c, E(c, v)) & \\
+\hline
+\end{array}
+++++
+
+イベントの前後で不変条件が保存されていることを証明するためのシークエント．
+
+<<<
