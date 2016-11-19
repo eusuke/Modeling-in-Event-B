@@ -8,6 +8,7 @@ latexmath:[A(c)]:: latexmath:[c] に関連する公理の集合．
 latexmath:[I(c, v)]:: latexmath:[c, v] に関連する不変条件の集合．
 latexmath:[v' = E(c, v)]:: before-after predicateで表したイベント．
 latexmath:[v] がイベントのアクションの結果 latexmath:[v'] に遷移した，という意味．
+latexmath:[G(c, v)]:: イベントのガード
 
 === INV
 
@@ -16,7 +17,8 @@ latexmath:[v] がイベントのアクションの結果 latexmath:[v'] に遷�
 \begin{array}{|l|c|}\hline
  A(c)            & \\
  I(c, v)         & \\
-\vdash           & \name{INV} \\
+ G(c, v)         & \name{INV} \\
+\vdash           & \\
  I_i(c, E(c, v)) & \\
 \hline
 \end{array}
