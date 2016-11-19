@@ -52,4 +52,21 @@ MONを適用して次のようにも表現できる (というかこちらが一
   {DEC}
 ++++
 
+=== OR_R1, OR_R2
+[stem]
+++++
+\rule
+  {\meta{H} \vdash \meta{P}}
+  {\meta{H} \vdash \meta{P} \vee \meta{Q}}
+  {OR\_R1}
+\quad
+\rule
+  {\meta{H} \vdash \meta{Q}}
+  {\meta{H} \vdash \meta{P} \vee \meta{Q}}
+  {OR\_R2}
+++++
+
+orなので latexmath:[\meta{P}, \meta{Q}] どちらかだけ
+latexmath:[\meta{H}] のもとで成り立つことが証明できればよい．
+
 <<<
