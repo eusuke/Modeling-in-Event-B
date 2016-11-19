@@ -69,4 +69,26 @@ MONを適用して次のようにも表現できる (というかこちらが一
 orなので latexmath:[\meta{P}, \meta{Q}] どちらかだけ
 latexmath:[\meta{H}] のもとで成り立つことが証明できればよい．
 
+=== P1
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\vdash 0 \in \NAT}
+  {P1}
+++++
+
+ペアノの第一公理．
+
+=== P3
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{n} \in \NAT \vdash 0 \le \meta{n}}
+  {P3}
+++++
+
+ペアノの第三公理．
+
 <<<
