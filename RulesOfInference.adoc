@@ -58,12 +58,12 @@ MONを適用して次のようにも表現できる (というかこちらが一
 \rule
   {\meta{H} \vdash \meta{P}}
   {\meta{H} \vdash \meta{P} \vee \meta{Q}}
-  {OR\_R1}
+  {OR_R1}
 \quad
 \rule
   {\meta{H} \vdash \meta{Q}}
   {\meta{H} \vdash \meta{P} \vee \meta{Q}}
-  {OR\_R2}
+  {OR_R2}
 ++++
 
 orなので latexmath:[\meta{P}, \meta{Q}] どちらかだけ
@@ -107,5 +107,55 @@ latexmath:[\meta{P}]あるいはlatexmath:[\meta{Q}]が成り立つ
 前件が二つあることに注意する．
 
 #これってlatexmath:[\meta{H}]はMONで消しちゃってもいいような気も…．
+
+=== HYP
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\meta{P} \vdash \meta{P}}
+  {HYP}
+++++
+
+latexmath:[\meta{P}]はlatexmath:[\meta{P}]を導出する．
+
+=== FALSE_L
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\perp \vdash \meta{P}}
+  {FALSE_L}
+++++
+
+仮説が偽であるなら，ゴールは常に真である．
+
+証明責務中の仮説は基本的に論理積で結ばれる．
+つまり，仮説に矛盾がある (⇒前件が常に偽になる) ようなモデルを定義してしまうと，
+すべての証明責務は証明されたことになってしまう．
+当然この証明は意味がないので，自動証明を過信しすぎることはないよう注意しなければならない．
+
+=== EQ_LR, EQ_RL
+[stem]
+++++
+\rule
+  {\meta{H(F)}, \meta{E} = \meta{F} \vdash \meta{P(F)}}
+  {\meta{H(E)}, \meta{E} = \meta{F} \vdash \meta{P(E)}}
+  {EQ_LR}
+\quad
+\rule
+  {\meta{H(E)}, \meta{E} = \meta{F} \vdash \meta{P(E)}}
+  {\meta{H(F)}, \meta{E} = \meta{F} \vdash \meta{P(F)}}
+  {EQ_RL}
+++++
+
+=== EQL
+[stem]
+++++
+\rule
+  {\vphantom{l}}
+  {\vdash \meta{E} = \meta{E}}
+  {EQL}
+++++
 
 <<<
