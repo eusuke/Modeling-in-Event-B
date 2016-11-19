@@ -2,15 +2,20 @@
 
 構築したモデルに対して証明しなければならないシークエント．
 
-latexmath:[c]:: constants
-latexmath:[v]:: variables
+latexmath:[c]:: 定数
+latexmath:[v]:: 変数
 latexmath:[A(c)]:: latexmath:[c] に関連する公理の集合．
 latexmath:[I(c, v)]:: latexmath:[c, v] に関連する不変条件の集合．
 latexmath:[v' = E(c, v)]:: before-after predicateで表したイベント．
 latexmath:[v] がイベントのアクションの結果 latexmath:[v'] に遷移した，という意味．
 latexmath:[G(c, v)]:: イベントのガード
+latexmath:[w]:: 具象変数. vの次でw?
+latexmath:[J(c, v, w)]:: 具象不変条件. Iの次でJ?
+latexmath:[H(c, w)]:: 具象イベントのガード．Gの次でH?
 
-=== INV
+=== モデル単体の性質に関するもの
+
+==== INV
 
 [stem]
 ++++
@@ -26,7 +31,7 @@ latexmath:[G(c, v)]:: イベントのガード
 
 イベントの前後で不変条件が保存されていることを証明するためのシークエント．
 
-=== DLF (Deadlock freedom)
+==== DLF (Deadlock freedom)
 
 [stem]
 ++++
@@ -41,5 +46,26 @@ latexmath:[G(c, v)]:: イベントのガード
 
 公理と不変条件が成立しているならばガードのうちの少なくとも一つが真である．
 つまり，いずれかのイベントは実行可能である．
+
+=== Refinementに関するもの
+
+==== GRD
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)       & \\
+ I(c, v)    & \\
+ J(c, v, w) & \name{GRD} \\
+ H(c, w)    & \\
+\vdash      & \\
+ G_i(c, v)  & \\
+\hline
+\end{array}
+++++
+
+具象ガードが抽象ガードより強いことを示すために証明しなければならないシークエント．
+抽象イベントが有効にならない場合には具象イベントも有効にならないことを意味する．
+
 
 <<<
