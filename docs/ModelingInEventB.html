@@ -447,6 +447,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_inc">INC</a></li>
 <li><a href="#_dec">DEC</a></li>
 <li><a href="#_or_r1_or_r2">OR_R1, OR_R2</a></li>
+<li><a href="#_p1">P1</a></li>
+<li><a href="#_p3">P3</a></li>
+<li><a href="#_or_l">OR_L</a></li>
+<li><a href="#_hyp">HYP</a></li>
+<li><a href="#_false_l">FALSE_L</a></li>
+<li><a href="#_eq_lr_eq_rl">EQ_LR, EQ_RL</a></li>
+<li><a href="#_eql">EQL</a></li>
 </ul>
 </li>
 </ul>
@@ -613,6 +620,18 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 </li>
 <li>
 <p>deadlock freedom ruleをRodinで証明するには??</p>
+</li>
+<li>
+<p>DLFを自前で不変条件に定義する．Rodinで定義した後に "not theorem" のラベルをクリックして "theorem" に変更すること．</p>
+</li>
+<li>
+<p>意味的には "theorem" にすることで，これが他の公理や不変条件から証明されるべき定理であることをRodinに指示することになる．</p>
+</li>
+<li>
+<p>それにより，Rodinは証明責務 DLF/THM を生成する．</p>
+</li>
+<li>
+<p>もしこれをやらなかった場合，DLFはINVに使われることになる (⇒ ML_out/DLF/INV) みたいな証明責務が生成されるので注意する．</p>
 </li>
 </ul>
 </div>
@@ -790,17 +809,128 @@ MONを適用して次のようにも表現できる (というかこちらが一
 \[\rule
   {\meta{H} \vdash \meta{P}}
   {\meta{H} \vdash \meta{P} \vee \meta{Q}}
-  {OR\_R1}
+  {OR_R1}
 \quad
 \rule
   {\meta{H} \vdash \meta{Q}}
   {\meta{H} \vdash \meta{P} \vee \meta{Q}}
-  {OR\_R2}\]
+  {OR_R2}\]
 </div>
 </div>
 <div class="paragraph">
 <p>orなので \(\meta{P}, \meta{Q}\) どちらかだけ
 \(\meta{H}\) のもとで成り立つことが証明できればよい．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_p1">P1</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\vdash 0 \in \NAT}
+  {P1}\]
+</div>
+</div>
+<div class="paragraph">
+<p>ペアノの第一公理．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_p3">P3</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{n} \in \NAT \vdash 0 \le \meta{n}}
+  {P3}\]
+</div>
+</div>
+<div class="paragraph">
+<p>ペアノの第三公理．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_or_l">OR_L</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H}, \meta{P} \vdash \meta{R} \qquad \meta{H}, \meta{Q} \vdash \meta{R}}
+  {\meta{H}, \meta{P} \vee \meta{Q} \vdash \meta{R}}
+  {OR_L}\]
+</div>
+</div>
+<div class="paragraph">
+<p>\(\meta{P}\)あるいは\(\meta{Q}\)が成り立つ
+ときに\(\meta{R}\)が成り立つことを証明するにはそれぞれ
+を独立して証明すればよい．</p>
+</div>
+<div class="paragraph">
+<p>前件が二つあることに注意する．</p>
+</div>
+<div class="paragraph">
+<p>#これって\(\meta{H}\)はMONで消しちゃってもいいような気も…．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hyp">HYP</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\meta{P} \vdash \meta{P}}
+  {HYP}\]
+</div>
+</div>
+<div class="paragraph">
+<p>\(\meta{P}\)は\(\meta{P}\)を導出する．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_false_l">FALSE_L</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\perp \vdash \meta{P}}
+  {FALSE_L}\]
+</div>
+</div>
+<div class="paragraph">
+<p>仮説が偽であるなら，ゴールは常に真である．</p>
+</div>
+<div class="paragraph">
+<p>証明責務中の仮説は基本的に論理積で結ばれる．
+つまり，仮説に矛盾がある (⇒前件が常に偽になる) ようなモデルを定義してしまうと，
+すべての証明責務は証明されたことになってしまう．
+当然この証明は意味がないので，自動証明を過信しすぎることはないよう注意しなければならない．</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eq_lr_eq_rl">EQ_LR, EQ_RL</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H(F)}, \meta{E} = \meta{F} \vdash \meta{P(F)}}
+  {\meta{H(E)}, \meta{E} = \meta{F} \vdash \meta{P(E)}}
+  {EQ_LR}
+\quad
+\rule
+  {\meta{H(E)}, \meta{E} = \meta{F} \vdash \meta{P(E)}}
+  {\meta{H(F)}, \meta{E} = \meta{F} \vdash \meta{P(F)}}
+  {EQ_RL}\]
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eql">EQL</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\vphantom{l}}
+  {\vdash \meta{E} = \meta{E}}
+  {EQL}\]
+</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -809,7 +939,7 @@ MONを適用して次のようにも表現できる (というかこちらが一
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-19 07:11:31 UTC
+Last updated 2016-11-19 08:07:07 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
