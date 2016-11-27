@@ -158,4 +158,31 @@ latexmath:[\meta{P}]はlatexmath:[\meta{P}]を導出する．
   {EQL}
 ++++
 
+=== OR_R
+[stem]
+++++
+\rule
+  {\meta{H}, \neg \meta{P} \vdash \meta{Q}}
+  {\meta{H} \vdash \meta{P} \vee \meta{Q}}
+  {OR_R}
+++++
+
+=== AND_L
+[stem]
+++++
+\rule
+  {\meta{H}, \meta{P}, \meta{Q} \vdash \meta{R}}
+  {\meta{H}, \meta{P} \wedge \meta{Q} \vdash \meta{R}}
+  {AND_L}
+++++
+
+=== AND_R
+[stem]
+++++
+\rule
+  {\meta{H} \vdash \meta{P} \qquad \meta{H} \vdash \meta{Q}}
+  {\meta{H} \vdash \meta{P} \wedge \meta{Q}}
+  {AND_R}
+++++
+
 <<<

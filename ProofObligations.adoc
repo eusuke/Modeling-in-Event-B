@@ -15,6 +15,7 @@ latexmath:[H(c, w)]:: 具象イベントのガード．Gの次でH?
 latexmath:[w' = F(c, w)]:: before-after predicateで表したイベント．Eの次でF?
 latexmath:[v' = K(c)]:: before-after predicateで表した初期化イベント．
 latexmath:[w' = L(c)]:: before-after predicateで表した具象初期化イベント．
+latexmath:[V(c, w)]:: 変量
 
 === モデル単体の性質に関するもの
 
@@ -101,5 +102,57 @@ latexmath:[w' = L(c)]:: before-after predicateで表した具象初期化イベ�
 ++++
 
 初期イベントに関連するINV．初期イベントにはガードがないのでGRD関連の前件がない．
+
+
+==== NAT
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)                & \\
+ I(c, v)             & \\
+ J(c, v, w)          & \\
+ H(c, w)             & \name{NAT} \\
+\vdash               & \\
+ V(c, w) \in \NAT    & \\
+\hline
+\end{array}
+++++
+
+変量が自然数であることを証明する．
+
+
+==== VAR
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)                      & \\
+ I(c, v)                   & \\
+ J(c, v, w)                & \\
+ H(c, w)                   & \name{VAR} \\
+\vdash                     & \\
+ V(c, F(c, w)) \lt V(c, w) & \\
+\hline
+\end{array}
+++++
+
+変量が単調減少であることを証明する．
+
+==== DLF
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)                                & \\
+ I(c, v)                             & \\
+ J(c, v, w)                          & \\
+ G_1(c, v) \vee \dots \vee G_m(c, v) & \name{DLF} \\
+\vdash                               & \\
+ H_1(c, v) \vee \dots \vee H_m(c, v) & \\
+\hline
+\end{array}
+++++
+
 
 <<<
