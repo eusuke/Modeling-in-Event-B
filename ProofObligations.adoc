@@ -13,6 +13,8 @@ latexmath:[w]:: 具象変数. vの次でw?
 latexmath:[J(c, v, w)]:: 具象不変条件. Iの次でJ?
 latexmath:[H(c, w)]:: 具象イベントのガード．Gの次でH?
 latexmath:[w' = F(c, w)]:: before-after predicateで表したイベント．Eの次でF?
+latexmath:[v' = K(c)]:: before-after predicateで表した初期化イベント．
+latexmath:[w' = L(c)]:: before-after predicateで表した具象初期化イベント．
 
 === モデル単体の性質に関するもの
 
@@ -73,14 +75,31 @@ latexmath:[w' = F(c, w)]:: before-after predicateで表したイベント．Eの
 [stem]
 ++++
 \begin{array}{|l|c|}\hline
- A(c)       & \\
- I(c, v)    & \\
- J(c, v, w) & \name{INV} \\
- H(c, w)    & \\
-\vdash      & \\
+ A(c)                      & \\
+ I(c, v)                   & \\
+ J(c, v, w)                & \name{INV} \\
+ H(c, w)                   & \\
+\vdash                     & \\
  J_i(c, E(c, v), F(c, w))  & \\
 \hline
 \end{array}
 ++++
+
+
+
+==== INV
+
+[stem]
+++++
+\begin{array}{|l|c|}\hline
+ A(c)                & \\
+ J(c, v, w)          & \name{INV} \\
+\vdash               & \\
+ J_i(c, K(c), L(c))  & \\
+\hline
+\end{array}
+++++
+
+初期イベントに関連するINV．初期イベントにはガードがないのでGRD関連の前件がない．
 
 <<<
