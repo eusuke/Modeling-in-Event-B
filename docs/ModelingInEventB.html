@@ -459,6 +459,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_false_l">FALSE_L</a></li>
 <li><a href="#_eq_lr_eq_rl">EQ_LR, EQ_RL</a></li>
 <li><a href="#_eql">EQL</a></li>
+<li><a href="#_or_r">OR_R</a></li>
+<li><a href="#_and_l">AND_L</a></li>
+<li><a href="#_and_r">AND_R</a></li>
 </ul>
 </li>
 </ul>
@@ -681,7 +684,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>分離することで「島から出る」「島へ入る」というイベントを導入する．</p>
 </li>
 <li>
-<p>GRDの証明</p>
+<p>GRD，INVの証明</p>
+</li>
+<li>
+<p>新しいイベントの導入「島から出る」「島へ入る」</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>これらが収束する (=ライブロックしない) ことを証明する (NAT，VAR)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>具象モデルでのDLFの証明 (抽象モデル以上にデッドロックすることがないこと)</p>
 </li>
 </ol>
 </div>
@@ -719,6 +735,9 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>変量の選び方は??</p>
 </li>
 </ul>
 </div>
@@ -770,6 +789,22 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <dt class="hdlist1">\(H(c, w)\)</dt>
 <dd>
 <p>具象イベントのガード．Gの次でH?</p>
+</dd>
+<dt class="hdlist1">\(w' = F(c, w)\)</dt>
+<dd>
+<p>before-after predicateで表したイベント．Eの次でF?</p>
+</dd>
+<dt class="hdlist1">\(v' = K(c)\)</dt>
+<dd>
+<p>before-after predicateで表した初期化イベント．</p>
+</dd>
+<dt class="hdlist1">\(w' = L(c)\)</dt>
+<dd>
+<p>before-after predicateで表した具象初期化イベント．</p>
+</dd>
+<dt class="hdlist1">\(V(c, w)\)</dt>
+<dd>
+<p>変量</p>
 </dd>
 </dl>
 </div>
@@ -832,6 +867,93 @@ Rodinを使う場合は初期化イベントがないと 2.4.15 までの証明�
 <div class="paragraph">
 <p>具象ガードが抽象ガードより強いことを示すために証明しなければならないシークエント．
 抽象イベントが有効にならない場合には具象イベントも有効にならないことを意味する．</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_inv_2">INV</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)                      &amp; \\
+ I(c, v)                   &amp; \\
+ J(c, v, w)                &amp; \name{INV} \\
+ H(c, w)                   &amp; \\
+\vdash                     &amp; \\
+ J_i(c, E(c, v), F(c, w))  &amp; \\
+\hline
+\end{array}\]
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_inv_3">INV</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)                &amp; \\
+ J(c, v, w)          &amp; \name{INV} \\
+\vdash               &amp; \\
+ J_i(c, K(c), L(c))  &amp; \\
+\hline
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>初期イベントに関連するINV．初期イベントにはガードがないのでGRD関連の前件がない．</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_nat">NAT</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)                &amp; \\
+ I(c, v)             &amp; \\
+ J(c, v, w)          &amp; \\
+ H(c, w)             &amp; \name{NAT} \\
+\vdash               &amp; \\
+ V(c, w) \in \NAT    &amp; \\
+\hline
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>変量が自然数であることを証明する．</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_var">VAR</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)                      &amp; \\
+ I(c, v)                   &amp; \\
+ J(c, v, w)                &amp; \\
+ H(c, w)                   &amp; \name{VAR} \\
+\vdash                     &amp; \\
+ V(c, F(c, w)) \lt V(c, w) &amp; \\
+\hline
+\end{array}\]
+</div>
+</div>
+<div class="paragraph">
+<p>変量が単調減少であることを証明する．</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dlf">DLF</h4>
+<div class="stemblock">
+<div class="content">
+\[\begin{array}{|l|c|}\hline
+ A(c)                                &amp; \\
+ I(c, v)                             &amp; \\
+ J(c, v, w)                          &amp; \\
+ G_1(c, v) \vee \dots \vee G_m(c, v) &amp; \name{DLF} \\
+\vdash                               &amp; \\
+ H_1(c, v) \vee \dots \vee H_m(c, v) &amp; \\
+\hline
+\end{array}\]
+</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1058,6 +1180,39 @@ MONを適用して次のようにも表現できる (というかこちらが一
   {EQL}\]
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_or_r">OR_R</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H}, \neg \meta{P} \vdash \meta{Q}}
+  {\meta{H} \vdash \meta{P} \vee \meta{Q}}
+  {OR_R}\]
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_and_l">AND_L</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H}, \meta{P}, \meta{Q} \vdash \meta{R}}
+  {\meta{H}, \meta{P} \wedge \meta{Q} \vdash \meta{R}}
+  {AND_L}\]
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_and_r">AND_R</h3>
+<div class="stemblock">
+<div class="content">
+\[\rule
+  {\meta{H} \vdash \meta{P} \qquad \meta{H} \vdash \meta{Q}}
+  {\meta{H} \vdash \meta{P} \wedge \meta{Q}}
+  {AND_R}\]
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1065,7 +1220,7 @@ MONを適用して次のようにも表現できる (というかこちらが一
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-11-19 14:49:29 UTC
+Last updated 2016-11-28 00:22:10 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
